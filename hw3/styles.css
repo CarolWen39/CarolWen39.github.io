@@ -1,0 +1,135 @@
+body {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: sans-serif;
+}
+li {
+    display: inline;
+}
+span {
+    vertical-align: middle;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* class */
+/* .top-container {
+    display: inline;
+    margin-right: 100px;
+    margin-left: 100px;
+} */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+   
+}
+
+.lawyer_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.container {
+    margin-right: 125px;
+    margin-left: 125px;
+}
+.container:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+}
+.footer-container {
+    background-color: #F1F1F1; 
+    width: 100%;
+    height: 150px;
+}
+.a-link {
+    color: gray;
+    padding: 10px;
+    font-size: 15px;
+}
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+    color: black;
+}
+.title {
+    color: black;
+    margin-bottom: 25px;
+    /* margin: 10px 0 10px; */
+}
+.article {
+    color: gray;
+    line-height: 1.5rem;
+}
+.page2 {
+    color: black;
+} 
+
+/* blue box */
+.email-box {
+    background-color: #1F4D7B;
+    margin-top: 50px;
+    width: 400px;
+    height: 450px;
+}
+.box-text-1 {
+    margin-top: 60px;
+    margin-left: 40px;
+    color: white;
+    font-size: small;
+    line-height: 2.5rem;
+}
+.box-text-2 {
+    color: white;
+    font-size: 40px;
+}
+.box-text-3 {
+    margin-left: 40px;
+    /* margin-right: 50px; */
+    color: yellow;
+    font-size: small;
+}
+
+.input-box {
+    margin-top: 30px;
+    margin-left: 40px;
+}
+input[type="text"] {
+    width: 300px;
+    height: 50px;
+    font-size: large;
+}
+.signupbottom {
+    background-color: #FFC300;
+    width: 150px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 12px;
+    border:none;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+/* id */
+#top {
+    height: 50px;
+    line-height: 25px;
+}
+#bottom {
+    margin-top: 100px;
+}
+#Menu {
+    font-size: 30px;
+}
+#link-tag {
+    text-align: right;
+}
