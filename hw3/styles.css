@@ -5,6 +5,13 @@ body {
     margin-bottom: 0;
     font-family: sans-serif;
 }
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration:none;
+    color: black;
+}
 li {
     display: inline;
 }
@@ -49,17 +56,10 @@ span {
     width: 100%;
     height: 150px;
 }
-.a-link {
+.tag-link {
     color: gray;
     padding: 10px;
     font-size: 15px;
-}
-a:link {
-    text-decoration: none;
-}
-a:hover {
-    text-decoration:none;
-    color: black;
 }
 .title {
     color: black;
