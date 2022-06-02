@@ -1,0 +1,206 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+form {
+    color: #555;
+    display: flex;
+    padding: 2px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    width: 520px;
+    margin: 0 auto;
+}
+p {
+    margin: 0; 
+    padding: 12px;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+/* input[type="text"] {
+    border: none;
+    background: transparent;
+    margin: 0;
+    height: 30px;
+    width: 420px;
+    font-size: 16px;
+    color: inherit;
+    border: 1px solid transparent;
+  } */
+  
+/* input[type="text"]::placeholder {
+    color: #bbb;
+} */
+/* button[type="submit"] {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 50%; */
+    /* background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center; */
+    /* background: url(static/images/search_icon.png) no-repeat right; */
+    /* cursor: pointer;
+    opacity: 0.5; */
+/* } */
+
+form:focus-within {
+    border-color: orange;
+    /* box-shadow: 0 0 0 50px white inset; */
+    /* outline: none; */
+}
+input[type="text"],
+input[type="text"]:focus,
+input[type="text"]:hover,
+input[type="text"]:active {
+    box-shadow: 0 0 0px 50px white inset;
+    border: none;
+    outline: none;
+}
+
+
+/* Class */
+.top-container {
+    margin: 0;
+    padding: 0;
+    background-color: #DAD8D7; 
+    width: 100%; 
+    height: 50px;
+}
+.search-container{
+    padding-top: 50px;
+    min-height: 720px;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar {
+    border-radius: 60px;
+}
+.search-bar input {
+    padding: 5px;
+    flex: 1;
+    outline: none;
+    border: 0;
+    display: block;
+    /* color: inherit; */
+    background: transparent;
+}
+#search {
+    font-size: 15px;
+}
+.button {
+    border: 0;
+    width: 40px;
+    background: transparent;
+    outline: none;
+    opacity: 0.5;
+    border-radius: 50%;
+    padding: 5px;
+}
+.button:hover {
+    opacity: 1;
+}
+.loading {
+    background: no-repeat center center;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+    width: 50%;
+    z-index: 9999999;
+}
+
+#loading-img-1 {
+    display: none;
+    margin: auto;
+}
+#loading-img-2 {
+    display: none;
+    margin: auto;
+}
+.search-result {
+    align-items: center;
+    width: 800px;
+    margin: auto;
+    padding: 50px 0 10px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.search-result-form {
+    margin: auto;
+    width: 100%;
+}
+.card{
+    float: left;
+    padding: 5px;
+    height: 220px;
+    width: 160px;
+    text-align: center;
+    padding-top: 10px;
+    margin-left:5px;
+    margin-right: 5px;
+    background-color: #205375;
+}
+.card:hover
+ {
+    background-color: #112B3C;
+}
+.art-img {
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.artistname {
+    color: white;
+    font-size: 15px;
+}
+.no-result {
+    background-color: #DAD8D7;
+    width: 520px;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    display:inline-block;
+    border-radius: 60px;
+}
+.noresult-box{
+    line-height:46px;
+}
+.card-button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: white;
+}
+.detail-container {
+    margin-top: 5px;
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    min-height: 350px;
+    line-height: 0.125rem;
+    padding-bottom: 50px;
+    display: none;
+}
+.paragraph {
+    min-height: 300px;
+    font-size: 15px;
+    line-height: 1rem;
+    text-align: left;
+}
+/* bottom */
+.bottom-container {
+    margin: 0;
+    padding: 0;
+    background-color: #082A43;
+    width: 100%;
+    height: 50px
+}
+.artsylogo {
+    width: 10;
+    height: 10;
+}
+
