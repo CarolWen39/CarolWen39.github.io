@@ -17,14 +17,16 @@ function hideLoadingImg2() {
 }
 // search artitst
 function artistNameSendBack(event) {
-    const formData = new FormData();
+    const myHeaders = new Headers();
     var artistName = document.getElementById("search").value;
     if (artistName) {
-        formData.append("artistName", artistName);
-
-        fetch("/search", {
-            method: "POST",
-            body: formData
+        myHeaders.append("artistName", artistName);
+        const myrequest = new Request("/search/"+artistName);
+        fetch(myrequest, {
+            method: "GET",
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default',
         }).then(function (response) {
             // window.setTimeout(showLoadingImg, 5000);
             showLoadingImg1();
@@ -87,12 +89,15 @@ function artistNameSendBack(event) {
 
 
 function artistDetail(event, id) {
-    const formData = new FormData();
+    const myHeaders = new Headers();
     if (id) {
-        formData.append('id', id);
-        fetch("/detail", {
-            method: "POST",
-            body: formData
+        myHeaders.append("id", id);
+        const myrequest = new Request("/detail/"+id);
+        fetch(myrequest, {
+            method: "GET",
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default',
         }).then(function (response) {
             showLoadingImg2();
             return response;

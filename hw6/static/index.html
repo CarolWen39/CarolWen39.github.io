@@ -12,7 +12,7 @@
         <p class="title">Artist Search</p>
     </div>
     <div class="search-container">
-        <form action="/search" class="search-bar" method="post">
+        <form action="/search" class="search-bar" method="get">
             <button id="search-btn" class="button" type="submit" onclick="artistNameSendBack(event)"><img src="static/images/search_icon.png" width="25"
                     height="25"></button>
             <input type="text" id="search" name="artistname" placeholder="Please enter an artist name." required>
@@ -22,7 +22,7 @@
             <img id="loading-img-1" src="static/images/loading.gif" width="50" height="50" style="text-align:center;">
         </div>
         <div class="search-result">
-            <form action="/detail" method="post" class="search-result-form" style="border: none;">
+            <form action="/detail" method="get" class="search-result-form" style="border: none;">
 
             </form>
         </div>

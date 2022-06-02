@@ -18,24 +18,22 @@ def home():
     return app.send_static_file('index.html')
 
 
-@app.route('/search', methods=["GET","POST"])
-def search():
+@app.route('/search/<artist_name>', methods=["GET"])
+def search(artist_name):
     ''' search artist ''' 
     TOKEN = get_token()
-    if request.method == "POST":
-        artist_name = request.form.get('artistName')
+    if request.method == "GET":
         search = requests.get(SEARCH_URL, params={"q": artist_name, "size": 10}, headers={"X-XAPP-Token": TOKEN, "Content-Type": "application/json; charset=UTF-8"})
         data = search.json()["_embedded"]["results"]
         filter_data = filter_ogtype(data)
         return jsonify(filter_data)
 
 
-@app.route('/detail', methods=["POST", "GET"])
-def detail():
+@app.route('/detail/<id>', methods=["POST", "GET"])
+def detail(id):
     ''' artist detail '''
     TOKEN = get_token()
-    if request.method == "POST":
-        id = request.form.get('id')
+    if request.method == "GET":
         if id:
             detail = requests.get(ARTISTS_URL+'/'+id, headers={"X-XAPP-Token": TOKEN, "Content-Type": "application/json; charset=UTF-8"})
             detail_data = get_detail_info(detail.json())
