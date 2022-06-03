@@ -15,11 +15,33 @@ function hideLoadingImg2() {
     var img = document.getElementById("loading-img-2");
     img.style.display = "none";
 }
+function showSearchDiv() {
+    var div = document.querySelector(".search-result-form");
+    div.style.display = "flex";
+}
+function hideSearchDiv() {
+    var div = document.querySelector(".search-result-form");
+    div.style.display = "none";
+}
+function showDetailDiv() {
+    var div = document.querySelector(".detail-container");
+    div.style.display = "block";
+}
+function hideDetailDiv() {
+    var div = document.querySelector(".detail-container");
+    div.style.display = "none";
+}
 // search artitst
 function artistNameSendBack(event) {
+    
     const myHeaders = new Headers();
     var artistName = document.getElementById("search").value;
     if (artistName) {
+        // hideSearchDiv();
+        hideDetailDiv();
+
+        showLoadingImg1();
+        
         myHeaders.append("artistName", artistName);
         const myrequest = new Request("/search/"+artistName);
         fetch(myrequest, {
@@ -29,7 +51,7 @@ function artistNameSendBack(event) {
             cache: 'default',
         }).then(function (response) {
             // window.setTimeout(showLoadingImg, 5000);
-            showLoadingImg1();
+            // showLoadingImg1();
             // setTimeout(function() {
             //     console.log("wait!");
             //   }, 5000);
@@ -42,13 +64,13 @@ function artistNameSendBack(event) {
             .then(function (data) {
                 // not display loading img
                 //window.setTimeout(hideLoadingImg, 5000);
-                hideLoadingImg1();
+                // hideLoadingImg1();
                 return data;
             })
             .then(function (data) {
                 var showhtml = ""
-                var detailcontainer = document.querySelector(".detail-container");
-                detailcontainer.style.display = "none";
+                // var detailcontainer = document.querySelector(".detail-container");
+                // detailcontainer.style.display = "none";
                 if (data.length > 0) {
                     
                     for (var i = 0; i < data.length; i++) {
@@ -74,6 +96,8 @@ function artistNameSendBack(event) {
                     // detailcontainer.style.display = "none";
                     showhtml = "<div class='no-result'><p class='noresult-box' style='text-align:center;'>No results found.</p></div>";
                 }
+                hideLoadingImg1();
+                showSearchDiv();
                 document.querySelector(".search-result-form").innerHTML = showhtml;
                 // var detailcontainer = document.querySelector(".detail-container");
                 // detailcontainer.style.display = "none";
@@ -90,7 +114,11 @@ function artistNameSendBack(event) {
 
 function artistDetail(event, id) {
     const myHeaders = new Headers();
+    hideDetailDiv();
     if (id) {
+        
+        showLoadingImg2();
+        
         myHeaders.append("id", id);
         const myrequest = new Request("/detail/"+id);
         fetch(myrequest, {
@@ -99,7 +127,7 @@ function artistDetail(event, id) {
             mode: 'cors',
             cache: 'default',
         }).then(function (response) {
-            showLoadingImg2();
+            // showLoadingImg2();
             return response;
         })
             .then(function (response) {
@@ -107,7 +135,7 @@ function artistDetail(event, id) {
                 return data;
             })
             .then(function (data) {
-                hideLoadingImg2();
+                // hideLoadingImg2();
                 return data;
             }).then(function (data) {
                 if(data.length>0) {
@@ -122,6 +150,8 @@ function artistDetail(event, id) {
                     var currenthtml = "<p>" + name + " ( " + birthday + " - " + deathday + " )</p>" + 
                     "<p style='font-size: 17px;'>" + nationality + "</p>" +
                     "<p class='paragraph'>" + biography + "</p>";
+                    hideLoadingImg2();
+                    showDetailDiv();
                     document.querySelector(".detail-container").innerHTML = currenthtml;
                 }
 

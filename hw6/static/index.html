@@ -18,14 +18,15 @@
             <input type="text" id="search" name="artistname" placeholder="Please enter an artist name." required>
             <button id="clear-btn" class="button" type="reset"><img src="static/images/clear_icon.png" width="20" height="20"></button>
         </form>
+        
+        <div class="search-result">
+            <form action="/detail" method="get" class="search-result-form" style="border: none;">
+            </form>
+        </div>
         <div class="loading">
             <img id="loading-img-1" src="static/images/loading.gif" width="50" height="50" style="text-align:center;">
         </div>
-        <div class="search-result">
-            <form action="/detail" method="get" class="search-result-form" style="border: none;">
-
-            </form>
-        </div>
+        
         <div class="loading">
             <img id="loading-img-2" src="static/images/loading.gif" width="50" height="50" style="text-align:center;">
         </div>
@@ -35,9 +36,12 @@
 
     </div>
     <div class="bottom-container">
-        <a href="https://www.artsy.net/" style="color: white; text-decoration: none;">
-            <p class="bottom" style="text-align:center; color:white; font-size: 15px;">Powered by<img src="static/images/artsy_logo.svg" width="20" height="20">Artsy.
-        </p></a>
+        <footer>
+            <a href="https://www.artsy.net/" style="color: white; text-decoration: none;">
+                <p class="bottom" style="text-align:center; color:white; font-size: 15px;">Powered by<img src="static/images/artsy_logo.svg" width="20" height="20">Artsy.
+            </p></a>
+        </footer>
+        
     </div>
 
 
