@@ -1,0 +1,185 @@
+<!-- search bar -->
+<div class="container-fluid">
+    <div class="searchbar">
+        <div class="container">
+            <div class="row" style="margin-left: 0px; margin-right:0px">
+                <div class="col-lg"></div>
+                <div class="col-sm-12 col-lg-8 form-div">
+                    <form id="search-form" (ngSubmit)="artistNameSendBack()">
+                        <div class="mb-3">
+                            <input id="search-input" type="text" class="form-control"
+                                placeholder="Please enter an artist name." [(ngModel)]="inputName"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="search-btn">
+                            <button type="submit" class="btn btn-primary btn-search" style="background-color: #144973;"
+                                [disabled]="inputName === ''">
+                                Search
+                                <span id="search-spinner" class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true" [style.display]="searchSpinnerDisplay"></span>
+                            </button>
+                            <button type="reset" class="btn btn-primary btn-clear" style="background-color: #A5A5A5;"
+                                (click)="setInitial()" [disabled]="!inputName">Clear</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg"></div>
+            </div>
+        </div>
+    </div>
+    <div class="result-list container" [style.display]="resultListDisplay">
+        <div class="row">
+            <div class="col-lg"></div>
+            <div class="col-lg-8 col-sm-8">
+                <div id="has-results" class="search-result container" [style.display]="hasResultsDisplay">
+                    <div class="row row-cols-lg-5 row-cols-2 flex-row flex-nowrap artist-cards">
+                        <div class="col-lg col-xs-6 artist-col" *ngFor="let artist of artists">
+                            <div id="artistcardId" class="card rounded-0 artist-card h-100"
+                                (click)="artistDetailSendBack(artist)"
+                                [class.selected]="artist === selectedCard">
+                                <img src={{artist[1]}} class="card-img-top rounded-0 artist-img" alt="..."
+                                    style="width: 250;">
+                                <div class="card-body text-body">
+                                    <p class="card-text">{{artist[0]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-artist-result" [style.display]="noResultsDisplay">
+                    <div class="alert alert-danger" role="alert">
+                        No results.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg"></div>
+        </div>
+    </div>
+    <div class="detail-wait text-center" [style.display]="detailWaitDisplay">
+        <div id="detail-spinner" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
+    <div class="artist-detail container" [style.display]="artistDetailsDisplay">
+        <div class="row">
+            <div class="col-lg"></div>
+            <div id="artist-detail" class="col-sm-12 col-lg-10" [style.display]="detailBlockDisplay">
+
+                <ul class="nav nav-pills nav-justified detail" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="artist-info" data-bs-toggle="pill"
+                            data-bs-target="#pills-artist-info" type="button" role="tab"
+                            aria-controls="pills-artist-info" aria-selected="true"
+                            [ngClass]="{ 'active':activeTab==='info'}" (click)="searchInfo('info')">Artist Info</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="artist-artworks" data-bs-toggle="pill"
+                            data-bs-target="#pills-artist-artworks" type="button" role="tab"
+                            aria-controls="pills-artist-artworks" aria-selected="false"
+                            [ngClass]="{ 'active':activeTab==='artworks'}"
+                            (click)="searchArtworks('artworks')">Artworks</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-artist-info" role="tabpanel"
+                        aria-labelledby="pills-home-tab" [ngClass]="{ 'active':activeTab==='info'}">
+                        <p class="info name-day">{{ artistDetail[0] }} ({{ artistDetail[1] }} - {{ artistDetail[2] }})
+                        </p>
+                        <p class="info nation">{{ artistDetail[3] }}</p>
+                        <p class="info biograpy">{{ artistDetail[4] }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="pills-artist-artworks" role="tabpanel"
+                        aria-labelledby="pills-profile-tab" [ngClass]="{ 'active':activeTab==='artworks'}">
+                        <div id="has-artworks" class="artwork-result container" [style.display]="hasArtworksDisplay">
+                            <div class="card-group artwork-cards">
+                                <div class="loop-artworks" *ngFor="let artwork of artistArtworks"
+                                    (click)="artworkCateSendBack(artwork[0])">
+                                    <div class="card h-100 rounded artwork-card">
+                                        <img src={{artwork[3]}} class="category-img rounded" alt="...">
+                                        <div class="card-body artwork-body"></div>
+                                        <div class="card-footer artwork-text">
+                                            <p class="card-text artwork-text">{{artwork[1]}}</p>
+                                            <p class="card-text artwork-text">{{artwork[2]}}</p>
+                                            <button class="btn btn-primary categories" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                (click)="currentCategory(artwork[0], artwork[1], artwork[2], artwork[3])">Categories</button>
+                                        </div>
+
+                                    </div>
+                                    <!-- Categories Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-sm modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="modal-title" id="exampleModalLabel">
+                                                        <div class="title-img-div" style="float: left;">
+                                                            <img src={{categoryImg}} class="title-img">
+                                                        </div>
+                                                        <div class="title-text-div">
+                                                            <p class="title-text" style="color: black;">
+                                                                {{categoryName}}<br>
+                                                                {{categoryDate}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div id="spinner-categories"
+                                                    class="modal-body text-center categories-result"
+                                                    [style.display]="categorySpinnerDisplay">
+                                                    <div id="detail-spinner" class="spinner-border text-primary"
+                                                        role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </div>
+                                                <div id="has-categories" class="modal-body categories-result container"
+                                                    [style.display]="hasCategoriesDisplay">
+                                                    <div class="row categories-cards">
+                                                        <div class="col-lg-4 loop-categroies"
+                                                            *ngFor="let categroy of categories">
+                                                            <div class="card h-100 rounded categories-card">
+                                                                <img src={{categroy[1]}}
+                                                                    class="card-img-top rounded related-cate-img"
+                                                                    alt="...">
+                                                                <div class="card-body categroy-body"></div>
+                                                                <div class="card-footer categroy-text">
+                                                                    <p class="card-text categroy-text">{{categroy[0]}}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="no-categories" class="modal-body categories-result"
+                                                    [style.display]="noCategoriesDisplay">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        No categories.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div id="no-artworks" class="artwork-result" [style.display]="noArtworksDisplay">
+                            <div class="responsive-width alert alert-danger" role="alert">
+                                No artworks.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg"></div>
+        </div>
+    </div>
+</div>

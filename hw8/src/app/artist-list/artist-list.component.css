@@ -1,0 +1,267 @@
+
+p {
+    font-size: medium;
+    color: white;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+.searchbar {
+    margin: auto;
+    padding-top: 50px;
+}
+.form-div {
+    padding: 0;
+}
+.search-form {
+    width: inherit;
+}
+.search-btn {
+    margin: 0 auto;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 0;
+    
+}
+#search-spinner {
+    display: none;
+}
+
+.result-list {
+    width: 100%;
+}
+.search-result {
+    align-items: left;
+    width: 100%;
+    margin: 20px auto;
+    padding: 50px 0 10px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.artist-card{
+    float: center;
+    padding: 0;
+   
+    margin-left:1px;
+    margin-right: 1px;
+    border: none;
+    background-color: #205375;
+}
+.artist-col {
+    padding: 0;
+}
+.artist-card:hover {
+    background-color: #112B3C;
+}
+
+#artistcardId.selected {
+    background-color: #112B3C;
+} 
+
+
+#no-artist-result {
+    margin: 20px auto;
+    /* width: 60%; */
+    align-items: center;
+}
+
+.alert {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.artist-detail {
+    margin: 50px auto;
+    align-items: center;
+    justify-content: center;
+}
+.detail-wait {
+    margin: auto;
+    display: none;
+    padding: 10px;
+}
+.text-body {
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+}
+#detail-spinner.spinner-border.text-primary{
+    margin: 0 auto;
+    color: #112B3C!important;
+}
+#artist-detail {
+    display: none;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #205375;
+    
+}
+.nav-link {
+    color: #205375;
+}
+#pills-artist-info {
+    margin-bottom: 100px;
+    padding: 20px;
+    text-align: center;
+}
+
+p.info.name-day {
+    color: black;
+    font-size: larger;
+}
+p.info.nation {
+    color: black;
+    font-size: large;
+}
+p.info.biograpy {
+    text-align: left;
+    color: black;
+}
+
+/* artworks */
+#pills-artist-artworks {
+    padding: 20px;
+
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.loop-artworks {
+    margin: 10px auto;
+    align-items: center;
+}
+.artwork-card {
+    /* margin-left: 5px;
+    margin-right: 5px; */
+    background-color: white;
+    /* max-width: min-content; */
+    /* max-width: fit-content; */
+    max-width: 250px;
+}
+.category-img {
+    /* width: 110%; */
+    /* max-width: 300px; */
+    width: 100%;
+    height: auto;
+}
+.artwork-body,
+.categroy-body {
+    padding: 0;
+}
+.artwork-text {
+    border: none;
+    background-color: inherit;
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+
+.btn.categories {
+    background-color: #205375;
+    color: white;
+}
+p.artwork-text {
+    color: black;
+}
+
+/* category modal */
+/* title */
+.modal-title {
+    width: 400px;
+    /* margin: 0 auto;
+    vertical-align: middle; */
+}
+.title-img-div {
+    margin: 0;
+}
+.title-img {
+    max-width: 100px;
+    max-height: 100px;
+    padding-right: 10px;
+} 
+.title-text-div {
+    margin: 0 auto;
+    vertical-align: middle;
+ 
+}
+
+p.title-text {
+    text-align: left;
+    color: black; 
+    /* width: absolute;
+    line-height: absolute; */
+    top: 50%; 
+} 
+/* content */
+.loop-categroies {
+    margin: 10px auto;
+    align-items: center;
+}
+.categories-card {
+    margin:0 auto;
+    max-width: 180px;
+}
+.related-cate-img {
+    max-width: 180px;
+}
+
+.categroy-text {
+    color: black;
+    border: none;
+    background-color: inherit;
+    
+}
+
+
+/* default setting */
+/* .result-list,
+.artist-detail {
+    display: none;
+} */
+#has-results {
+    display: none;
+}
+
+#no-artist-result{
+    display: none;
+}
+#has-artworks {
+    display: none;
+}
+#no-artworks {
+    width: 100%;
+    display: none;
+}
+.responsive-width {
+    text-align: left;
+}
+#has-categories {
+    display: none;
+}
+#no-categories {
+    display: none;
+}
+#spinner-categories {
+    display: none;
+}
+
+@media (max-width: 767.98px) { 
+    #no-artworks {
+        margin: 0 auto;
+        align-items: center;
+        width: 40%;
+    }
+    .responsive-width {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+ }
