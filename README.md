@@ -1,1 +1,1 @@
-# Homework for CSCI571
+# Web Technologies (CSCI571)
