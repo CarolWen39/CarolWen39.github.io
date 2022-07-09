@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ArtistSearch</string>
+    <string name="favorite">FAVORITES</string>
+    <string name="search_hint">Search...</string>
+    <string name="loading">loading...</string>
+    <string name="hyperlink"><a href="https://www.artsy.net/">Powered by Artsy</a></string>
+    <string name="noResult">No Results Found</string>
+    <string name="detail">DETAILS</string>
+    <string name="artwork">ARTWORK</string>
+    <string name="artist_name">Name</string>
+    <string name="nation">Nationality</string>
+    <string name="birth">Birthday</string>
+    <string name="death">Deathday</string>
+    <string name="bio">Biography</string>
+    <string name="noArtWork">No Artwork Available</string>
+    <string name="category">Category</string>
+    <string name="descrption">Descrption</string>
+    <string name="noCate">No Category Available</string>
+
+</resources>
