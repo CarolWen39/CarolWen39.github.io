@@ -3,8 +3,8 @@ const axios = require('axios').default;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const ClientId = "f306e380923c83710750";
-const ClientSecret = "3ef69bf57eece01c21604cd283bc04f6";
+const ClientId = "";
+const ClientSecret = "";
 const AUTHENTICATION_URL = "https://api.artsy.net/api/tokens/xapp_token";
 const SEARCH_URL = "https://api.artsy.net/api/search";
 const ARTISTS_URL = "https://api.artsy.net/api/artists";
