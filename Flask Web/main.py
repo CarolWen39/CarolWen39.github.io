@@ -3,8 +3,8 @@ from flask import request, jsonify
 import requests
 
 
-ClientId = "f306e380923c83710750"
-ClientSecret = "3ef69bf57eece01c21604cd283bc04f6"
+ClientId = ""
+ClientSecret = ""
 AUTHENTICATION_URL = "https://api.artsy.net/api/tokens/xapp_token"
 SEARCH_URL = "https://api.artsy.net/api/search"
 ARTISTS_URL = "https://api.artsy.net/api/artists"
