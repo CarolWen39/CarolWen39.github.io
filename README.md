@@ -1,1 +1,1 @@
-# Web Technologies (CSCI571)
+# Web and Android App development
